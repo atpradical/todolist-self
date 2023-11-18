@@ -72,7 +72,7 @@ export function Todolist(props: PropsType) {
                             checked={t.isDone}
                             onChange={onChangeHandler}
                         />
-                        <span className={t.isDone ? "is-done": ''}>{t.title}</span>
+                        <span className={t.isDone ? "is-done" : ""}>{t.title}</span>
                         <button onClick={onClickHandler}>x</button>
                     </li>
                 })
