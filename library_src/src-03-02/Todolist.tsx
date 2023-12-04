@@ -2,11 +2,9 @@ import React, {ChangeEvent} from 'react';
 import {FilterValuesType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
-import IconButton from "@material-ui/core/IconButton";
-import {Delete} from "@material-ui/icons";
-import Checkbox from "@material-ui/core/Checkbox";
-import Button from "@material-ui/core/Button";
-
+import IconButton from "@mui/material/IconButton/IconButton";
+import {Delete} from "@mui/icons-material";
+import {Button, Checkbox} from "@mui/material";
 
 
 export type TaskType = {

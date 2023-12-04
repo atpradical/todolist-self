@@ -3,16 +3,9 @@ import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
 import {AddItemForm} from './AddItemForm';
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import {Menu} from "@material-ui/icons";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import Container from "@material-ui/core/Container";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-
+import {AppBar, Button, Container, Grid, Paper, Toolbar, Typography} from "@mui/material";
+import IconButton from "@mui/material/IconButton/IconButton";
+import {Menu} from "@mui/icons-material";
 
 
 export type FilterValuesType = "all" | "active" | "completed";
@@ -92,6 +85,7 @@ function App() {
             setTasks({...tasks});
         }
     }
+
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
         let todolist = todolists.find(tl => tl.id === todolistId);
