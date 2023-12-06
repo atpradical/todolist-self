@@ -49,7 +49,6 @@ test('correct task should be added to correct array', () => {
     }
 
     const action = addTaskAC('juce', 'todolistId2')
-
     const endState = tasksReducer(startState, action)
 
     expect(endState['todolistId1'].length).toBe(3)
@@ -98,7 +97,6 @@ test('title of specified task should be changed', () => {
     }
 
     const action = changeTaskTitleAC('2', "Coca-Cola", 'todolistId2')
-
     const endState = tasksReducer(startState, action)
 
     expect(endState["todolistId1"][1].title).toBe("JS")
@@ -120,9 +118,7 @@ test('new property with array should be added when new todolist is added', () =>
     }
 
     const action = addTodolistAC('new todolist')
-
     const endState = tasksReducer(startState, action)
-
 
     const keys = Object.keys(endState)
     const newKey = keys.find(k => k != 'todolistId1' && k != 'todolistId2')
@@ -149,10 +145,7 @@ test('property with todolistId should be deleted', () => {
     }
 
     const action = removeTodolistAC('todolistId2')
-
     const endState = tasksReducer(startState, action)
-
-
     const keys = Object.keys(endState)
 
     expect(keys.length).toBe(1)
