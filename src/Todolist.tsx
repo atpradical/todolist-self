@@ -4,8 +4,8 @@ import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
 import IconButton from "@material-ui/core/IconButton";
 import {Delete} from "@material-ui/icons";
-import Button from "@material-ui/core/Button";
 import {Task} from "./Task";
+import {Btn} from "./Btn";
 
 export type TaskType = {
     id: string
@@ -39,7 +39,7 @@ export const Todolist = memo((props: PropsType) => {
 
     const changeTodolistTitle = useCallback((title: string) => {
         props.changeTodolistTitle(props.id, title);
-    },[])
+    }, [])
 
     const onAllClickHandler = useCallback(() => props.changeFilter("all", props.id),
         [props.changeFilter, props.id])
@@ -56,6 +56,10 @@ export const Todolist = memo((props: PropsType) => {
     if (props.filter === "completed") {
         tasksForTodolist = props.tasks.filter(t => t.isDone === true);
     }
+
+    const btnAllVariant = props.filter === 'all' ? 'outlined' : 'text'
+    const btnActiveVariant = props.filter === 'active' ? 'outlined' : 'text'
+    const btnCompletedVariant = props.filter === 'completed' ? 'outlined' : 'text'
 
     return <div>
         <h3><EditableSpan value={props.title} onChange={changeTodolistTitle}/>
@@ -78,19 +82,24 @@ export const Todolist = memo((props: PropsType) => {
             }
         </div>
         <div style={{paddingTop: "10px"}}>
-            <Button variant={props.filter === 'all' ? 'outlined' : 'text'}
-                    onClick={onAllClickHandler}
-                    color={'inherit'}
-            >All
-            </Button>
-            <Button variant={props.filter === 'active' ? 'outlined' : 'text'}
-                    onClick={onActiveClickHandler}
-                    color={'primary'}>Active
-            </Button>
-            <Button variant={props.filter === 'completed' ? 'outlined' : 'text'}
-                    onClick={onCompletedClickHandler}
-                    color={'secondary'}>Completed
-            </Button>
+            <Btn
+                name={'All'}
+                onClick={onAllClickHandler}
+                color={'inherit'}
+                variant={btnAllVariant}
+            />
+            <Btn
+                name={'Active'}
+                onClick={onActiveClickHandler}
+                color={'primary'}
+                variant={btnActiveVariant}
+            />
+            <Btn
+                name={'Completed'}
+                onClick={onCompletedClickHandler}
+                color={'secondary'}
+                variant={btnCompletedVariant}
+            />
         </div>
     </div>
 })
